@@ -1,0 +1,16 @@
+<!doctype html>
+<head>
+  <title>My list</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <h1>My To Do List</h1>
+  
+  <ol>
+  {% for item in my_list %}
+      <li>{{item}}</li>
+  {% endfor %}
+  </ol>
+
+  <a href="/todo">Add more tasks?</a>
+</body>

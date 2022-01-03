@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 from form import TaskForm
 from config import Config
 
@@ -23,6 +23,12 @@ def todo():
   if form.is_submitted():
     print("made it")
     add_to_list(form.task.data)
+    return redirect('/mylist')
   return render_template('todo.html', form=form)
+ 
+
+@app.route('/mylist')
+def mylist():
+  return render_template('mylist.html', my_list=my_list)
 
 app.run(host='0.0.0.0', port=8080)
